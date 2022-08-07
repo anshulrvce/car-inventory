@@ -21,5 +21,6 @@ inventory management for cars
 
 
 # further enhancements needed
-1. enhance the error handler to handle all mongoDB errors
-2. add testing (unit, integration)
+1. enhance the error handler to handle all errors.
+2. think of a better primary key (maybe serial number or create uuid) to use instead of default _id for all api queries
+3. add testing (unit, integration)

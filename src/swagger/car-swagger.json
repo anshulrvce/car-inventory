@@ -124,7 +124,7 @@
           "Cars"
         ],
         "summary": "Update car",
-        "description": "Fully update a car via its ID.",
+        "description": "update seating capacity, color or price of a car via its ID.",
         "operationId": "updateCar",
         "parameters": [
           {
@@ -211,14 +211,6 @@
         ],
         "additionalProperties": false,
         "properties": {
-          "brand": {
-            "description": "The name of the manufacturer",
-            "type": "string"
-          },
-          "model": {
-            "description": "The model name of the car",
-            "type": "string"
-          },
           "color": {
             "description": "The color of the car",
             "type": "string",
@@ -233,10 +225,6 @@
           },
           "seatingCapacity": {
             "description": "Time and date that the car arrived",
-            "type": "number"
-          },
-          "year": {
-            "description": "year of manufacturing",
             "type": "number"
           },
           "price": {

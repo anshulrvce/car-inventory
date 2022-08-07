@@ -25,8 +25,8 @@ class CarController {
 		const car  = new Car(req.body);
 		try{
 			// save the car object to the database
-			await car.save();
-			res.sendStatus(201)
+			const carDetails = await car.save();
+			res.status(201).send(carDetails)
 		} catch(e){
 			logger.error(e)
 			next(e);
@@ -67,10 +67,22 @@ class CarController {
    * update details of a specific car
    * @param req 
    */
-	public static async updateCar(req: Request,  res: Response): Promise< any> {
+	public static async updateCar(req: Request,  res: Response, next: NextFunction): Promise< any> {
+		let carDetails;
+		// check if a car exists with provider _id
+		try{
+			carDetails = await Car.findOne({_id: req.params.carId});
+		} catch(e){
+			logger.error(e)
+			next(e)
+		}
+		if(carDetails === null){
+			const error  =  new Error('No car found with provided id');
+			res.status(404).send(error)
+		}
 		// search car by _id and update car details 
-		await Car.findByIdAndUpdate({_id: req.params.carId}, req.body)
-		res.sendStatus(200)
+		const updateCar = await Car.findOneAndUpdate({_id: req.params.carId}, req.body, {returnDocument: 'after'})
+		res.status(200).send(updateCar)
 
 	}
 }

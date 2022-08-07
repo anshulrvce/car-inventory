@@ -10,5 +10,5 @@ import logger from '../utils/logger';
  */
 export function errorHandler(error: Error, req: Request, res: Response, next: NextFunction) {
 	logger.error(error.message, error);
-	res.status(500).send('Something failed');
+	res.status(500).send(error);
 }
