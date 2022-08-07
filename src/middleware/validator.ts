@@ -1,6 +1,7 @@
 import {Request, Response, NextFunction} from 'express';
 import Ajv from 'ajv'
 
+// middleware to validate the request body based on schema provided
 class ValidationMiddleware {
 	validateRequest(schema: any) {
 		return function(

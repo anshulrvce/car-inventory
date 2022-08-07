@@ -17,9 +17,6 @@ export interface ICar extends CarMetaData{
   price: number
 }
 
-export interface ICarDB  extends ICar {
-  _id: string
-}
 
 
 export default ICar;

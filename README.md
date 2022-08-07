@@ -20,7 +20,8 @@ inventory management for cars
 
 
 
-# further enhancements needed
+# further enhancements
 1. enhance the error handler to handle all errors.
 2. think of a better primary key (maybe serial number or create uuid) to use instead of default _id for all api queries
 3. add testing (unit, integration)
+4. Use typescript well (use of interfaces, typed parameters)
