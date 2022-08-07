@@ -1,0 +1,25 @@
+version: "3"
+services:
+  web:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    container_name: 'car-inventory'
+    volumes:
+        - .:/usr/src/app/
+    working_dir: /usr/src/app
+    command: sh -c "npm install && npm start"
+    environment:
+        - MONGOOSE_URL=mongodb://mongo:27017/typescript_mongoose
+    ports:
+        - 8080:8080
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+    expose:
+       - 27017
+volumes:
+ mongodb:

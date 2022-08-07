@@ -1,0 +1,293 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Car Inventory API",
+    "description": "Api to manage car inventpry"
+  },
+  "tags": [
+    {
+      "name": "Cars",
+      "description": "Operations for managing car inventory."
+    }
+  ],
+  "paths": {
+    "/api/cars": {
+      "get": {
+        "operationId": "listCars",
+        "summary": "List metadata for all cars",
+        "description": "returns the array of metadata of all cars in inventory",
+        "tags": [
+          "Cars"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListCars"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "add car",
+        "description": "add a car to inventory.",
+        "operationId": "updateCar",
+        "parameters": [
+        ],
+        
+        "responses": {
+          "201": {
+            "description": "added successfully"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Car"
+              }
+            }
+          },
+          "description": "add car object",
+          "required": true
+        }
+      }
+    },
+    "/api/cars/{carId}": {
+      "get": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "get single car",
+        "description": "get all details of a single car by id",
+        "operationId": "getCar",
+        "parameters": [
+          {
+            "name": "carId",
+            "in": "path",
+            "description": "The ID of the car that needs updating",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "12345"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successfully"
+          },
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Car"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "remove a single car",
+        "description": "remove a car from inventory",
+        "operationId": "deleteCar",
+        "parameters": [
+          {
+            "name": "carId",
+            "in": "path",
+            "description": "The ID of the car that needs updating",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }          }
+        ],
+        "responses": {
+          "204": {
+            "description": "successfully"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Cars"
+        ],
+        "summary": "Update car",
+        "description": "Fully update a car via its ID.",
+        "operationId": "updateCar",
+        "parameters": [
+          {
+            "name": "carId",
+            "in": "path",
+            "description": "The ID of the car that needs updating",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+                    }
+        ],
+        
+        "responses": {
+          "204": {
+            "description": "Updated successfully"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCarRequest"
+              }
+            }
+          },
+          "description": "Updated car object",
+          "required": true
+        }
+      }
+    }
+  },
+
+  "components": {
+    "schemas": {
+      "Car": {
+        "type": "object",
+        "required": [
+          "brand",
+          "model",
+          "year",
+          "color",
+          "price"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "brand": {
+            "description": "The name of the manufacturer",
+            "type": "string"
+          },
+          "model": {
+            "description": "The model name of the car",
+            "type": "string"
+          },
+          "color": {
+            "description": "The color of the car",
+            "type": "string",
+            "enum": [
+              "Black",
+              "Blue",
+              "Red",
+              "Silver",
+              "Green",
+              "Yellow"
+            ]
+          },
+          "seatingCapacity": {
+            "description": "Time and date that the car arrived",
+            "type": "number"
+          },
+          "year": {
+            "description": "year of manufacturing",
+            "type": "number"
+          },
+          "price": {
+            "description": "price of car",
+            "type": "number"
+          }
+        }
+      },
+      "UpdateCarRequest": {
+        "type": "object",
+        "required": [
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "brand": {
+            "description": "The name of the manufacturer",
+            "type": "string"
+          },
+          "model": {
+            "description": "The model name of the car",
+            "type": "string"
+          },
+          "color": {
+            "description": "The color of the car",
+            "type": "string",
+            "enum": [
+              "Black",
+              "Blue",
+              "Red",
+              "Silver",
+              "Green",
+              "Yellow"
+            ]
+          },
+          "seatingCapacity": {
+            "description": "Time and date that the car arrived",
+            "type": "number"
+          },
+          "year": {
+            "description": "year of manufacturing",
+            "type": "number"
+          },
+          "price": {
+            "description": "price of car",
+            "type": "number"
+          }
+        }
+      },
+      "ListCars": {
+        "description": "List of cars",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarMetadata"
+            }
+          }
+          }
+        },
+      "CarMetadata": {
+        "type": "object",
+        "required": [
+          "brand",
+          "model",
+          "year"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "brand": {
+            "description": "The name of the manufacturer",
+            "type": "string"
+          },
+          "model": {
+            "description": "The model name of the car",
+            "type": "string"
+          },
+          "year": {
+            "description": "year of manufacturing",
+            "type": "number"
+          },
+          "id": {
+            "description": "year of manufacturing",
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
