@@ -19,3 +19,7 @@ inventory management for cars
 7. You can browse the application api swagger explorer on `http://localhost:8080/api-docs` and try out the apis
 
 
+
+# further enhancements needed
+1. enhance the error handler to handle all mongoDB errors
+2. add testing (unit, integration)
