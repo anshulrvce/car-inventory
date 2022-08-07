@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import CarController  from '../controllers/cars'
 import ValidationMiddleware from '../middleware/validator'
-const swaggerDocument = require('../swagger/car-swagger.json');
+import swaggerDocument from'../swagger/car-swagger.json';
 
 
 export const carRouter = Router();

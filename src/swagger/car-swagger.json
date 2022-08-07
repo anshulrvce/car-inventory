@@ -1,9 +1,9 @@
-{
+ {
   "openapi": "3.0.0",
   "info": {
     "version": "1.0.0",
     "title": "Car Inventory API",
-    "description": "Api to manage car inventpry"
+    "description": "Api to manage car inventory"
   },
   "tags": [
     {

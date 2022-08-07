@@ -11,9 +11,10 @@ export interface CarMetaData {
 /**
  * Define interface for Car Model
  */
- export interface ICar extends CarMetaData{
+export interface ICar extends CarMetaData{
   color: string;
   seatingCapacity: number;
+  price: number
 }
 
 export interface ICarDB  extends ICar {
