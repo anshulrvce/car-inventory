@@ -79,8 +79,7 @@
             "required": true,
             "schema": {
               "type": "string"
-            },
-            "example": "12345"
+            }
           }
         ],
         "responses": {
@@ -164,8 +163,8 @@
         "type": "object",
         "required": [
           "brand",
-          "model",
-          "year",
+          "modelName",
+          "modelYear",
           "color",
           "price"
         ],
@@ -175,7 +174,7 @@
             "description": "The name of the manufacturer",
             "type": "string"
           },
-          "model": {
+          "modelName": {
             "description": "The model name of the car",
             "type": "string"
           },
@@ -195,7 +194,7 @@
             "description": "Time and date that the car arrived",
             "type": "number"
           },
-          "year": {
+          "modelYear": {
             "description": "year of manufacturing",
             "type": "number"
           },
@@ -213,15 +212,7 @@
         "properties": {
           "color": {
             "description": "The color of the car",
-            "type": "string",
-            "enum": [
-              "Black",
-              "Blue",
-              "Red",
-              "Silver",
-              "Green",
-              "Yellow"
-            ]
+            "type": "string"
           },
           "seatingCapacity": {
             "description": "Time and date that the car arrived",
@@ -245,8 +236,8 @@
         "type": "object",
         "required": [
           "brand",
-          "model",
-          "year"
+          "modelName",
+          "modelYear"
         ],
         "additionalProperties": false,
         "properties": {
@@ -254,16 +245,16 @@
             "description": "The name of the manufacturer",
             "type": "string"
           },
-          "model": {
+          "modelName": {
             "description": "The model name of the car",
             "type": "string"
           },
-          "year": {
+          "modelYear": {
             "description": "year of manufacturing",
             "type": "number"
           },
           "id": {
-            "description": "year of manufacturing",
+            "description": "id of the car entry",
             "type": "number"
           }
         }

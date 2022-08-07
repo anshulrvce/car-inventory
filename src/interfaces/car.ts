@@ -4,8 +4,8 @@
  */
 export interface CarMetaData {
   brand: string;
-  model: string;
-  year: number;
+  modelName: string;
+  modelYear: number;
 }
 
 /**

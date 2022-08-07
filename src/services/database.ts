@@ -12,7 +12,7 @@ export class Database {
 	// Initialize your database
 	public static async init (): Promise<void> {
 		// read the db connection url from env variable
-		const connectionUrl = process.env.MONGOOSE_URL|| 'mongodb://127.0.0.1:27017/cars';  
+		const connectionUrl = process.env.MONGOOSE_URL|| 'mongodb://127.0.0.1:27017/car_inventory';  
 		try{
 			await mongoose.connect(connectionUrl);
 			logger.info('connected to mongo server')
