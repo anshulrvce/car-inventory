@@ -45,6 +45,10 @@ class CarController {
 			logger.error(e)
 			next(e)
 		}
+		if(carDetails === null){
+			const error  =  new Error('No car found with provided id');
+			res.status(404).send(error)
+		}
 		res.send(carDetails)
 	}
 	/**

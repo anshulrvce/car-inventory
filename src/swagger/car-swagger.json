@@ -247,20 +247,12 @@
       },
       "ListCars": {
         "description": "List of cars",
-        "type": "object",
         "additionalProperties": false,
-        "required": [
-          "data"
-        ],
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CarMetadata"
-            }
-          }
-          }
-        },
+        "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/CarMetadata"
+        }
+      },
       "CarMetadata": {
         "type": "object",
         "required": [

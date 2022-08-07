@@ -10,7 +10,7 @@ services:
     working_dir: /usr/src/app
     command: sh -c "npm install && npm start"
     environment:
-        - MONGOOSE_URL=mongodb://mongo:27017/typescript_mongoose
+        - MONGOOSE_URL=mongodb://mongo:27017/carsdb
     ports:
         - 8080:8080
   mongo:

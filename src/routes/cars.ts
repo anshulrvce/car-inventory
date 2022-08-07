@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import CarController  from '../controllers/cars'
+import CarController  from '../controllers/car-controller'
 import ValidationMiddleware from '../middleware/validator'
 import swaggerDocument from'../swagger/car-swagger.json';
 
