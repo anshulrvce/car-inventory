@@ -1,6 +1,6 @@
 # car-inventory
 inventory management for cars
-
+This application provides a rest apis to manager car invetory by adding, updating, getting and deleting a car information from inventory.
 
 ## Running the application using docker
 1. Install docker for mac or desktop on your machine
