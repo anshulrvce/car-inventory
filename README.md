@@ -25,3 +25,7 @@ inventory management for cars
 2. think of a better primary key (maybe serial number or create uuid) to use instead of default _id for all api queries
 3. add testing (unit, integration)
 4. Use typescript well (use of interfaces, typed parameters)
+5. Data transformation (during input and output)
+
+Note:
+for "Updaten single properties of a single car (not a full replace operation!)" i was not very clear if i need to implement api which will only allow updating a single property at a time. so, the api i have implemented will allow you to update one or more property at a time and will not allow you to update metadata properties i.e. brand, modelName, modelyear
